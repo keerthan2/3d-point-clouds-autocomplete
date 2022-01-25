@@ -138,7 +138,7 @@ config_missing_shapenet.json.sample
     - run `python3 core/main.py --config settings/config.json`
 
 ### Pre-trained Models
-Pre-trained models can be downloaded from [Release page](https://github.com/keerthan2/3d-point-clouds-autocomplete/releases). 
+Pre-trained models can be downloaded from the author's [Release page](https://github.com/gmum/3d-point-clouds-autocomplete/releases). 
 To use them:
     
 1) Download the model weights zip file (naming convention is the same as for the configs above).
