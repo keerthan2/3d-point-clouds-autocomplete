@@ -185,7 +185,7 @@ def main(config: dict):
                 if experiment_dict.pop('execute', False):
                     log.info(experiment_name)
                     experiment_functions_dict[experiment_name](full_model, device, test_dataset_dict, result_dir_path,
-                                                               latest_epoch, **experiment_dict)
+                                                               latest_epoch, **experiment_dict, save_plots=True)
 
     exit(0)
 
