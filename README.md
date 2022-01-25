@@ -50,12 +50,11 @@ Install requirements:
 
 
 ## Usage
-**Add project root directory to PYTHONPATH**
+### Add project root directory to PYTHONPATH
+In the home directory, run the following command
+```export PYTHONPATH=$(pwd)```
 
-```export PYTHONPATH=$(project_path):$PYTHONPATH```
-
-**Download dataset**
-
+### Download dataset
 We use four datasets in our paper.
 
 1. 3D-EPN
@@ -111,8 +110,7 @@ We use four datasets in our paper.
     4) run `python3 util_scripts/generate_partial_dataset.py --config setting/config.json`
     5) copy `splits/shapenet/*.list` to the specified folder
     
-**Training**
-    
+### Training
 We have prepared several settings for working with different datasets:
 ```
 #train single class of 3depn dataset
@@ -139,8 +137,8 @@ config_missing_shapenet.json.sample
 3) exec script
     - run `python3 core/main.py --config settings/config.json`
 
-**Pre-trained Models**
-Pre-trained models can be downloaded from [our Release page](https://github.com/gmum/3d-point-clouds-autocomplete/releases). 
+### Pre-trained Models
+Pre-trained models can be downloaded from [Release page](https://github.com/keerthan2/3d-point-clouds-autocomplete/releases). 
 To use them:
     
 1) Download the model weights zip file (naming convention is the same as for the configs above).
@@ -149,7 +147,7 @@ To use them:
    else you need to specify the exac epoch (listed on the release page).
     
     
-**Experiments**
+### Experiments
 
 1) In case you train the model by yourself, just change `["mode"]` in the config file to `"experiments"`
 otherwise need also to specify fields mentioned above.
