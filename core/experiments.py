@@ -35,11 +35,11 @@ def fixed(full_model: FullModel, device, datasets_dict, results_dir: str, epoch,
 
             existing, _, _, idx = data
             existing = existing.to(device)
-
+            bs, N_pts, N_axes = existing.shape
             for j in range(noises_per_item):
                 fixed_noise = torch.zeros(existing.shape[0], full_model.get_noise_size()).normal_(mean=mean, std=std).to(
                     device)
-                reconstruction = full_model(existing, None, [existing.shape[0], 2048, 3], epoch, device,
+                reconstruction = full_model(existing, None, [bs, N_pts, N_axes], epoch, device,
                                             noise=fixed_noise).cpu()
                 for k in range(reconstruction.shape[0]):
                     np.save(join(results_dir, 'fixed', f'{cat_name}_{i * batch_size + k}_{j}_reconstruction'),

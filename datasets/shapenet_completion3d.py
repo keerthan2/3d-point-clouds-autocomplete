@@ -6,6 +6,10 @@ import numpy as np
 from datasets.base_dataset import BaseDataset
 from datasets.utils.shapenet_category_mapping import synth_id_to_category
 
+# NOTE
+#########
+# Data should be in the range [-1,1] along all three axes.
+#########
 
 class ShapeNetCompletion3DDataset(BaseDataset):
 
@@ -45,6 +49,8 @@ class ShapeNetCompletion3DDataset(BaseDataset):
             gt = self._load_h5(os.path.join(self.root_dir, self.split, 'gt', model_name + '.h5'))
         else:
             gt = existing
+        # print(np.min(existing,axis=0),np.max(existing,axis=0))
+        # exit()
         return existing, 0, gt, model_name
 
     @classmethod

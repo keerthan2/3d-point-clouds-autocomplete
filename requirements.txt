@@ -7,3 +7,4 @@ numpy
 trimesh
 requests
 ray
+open3d
