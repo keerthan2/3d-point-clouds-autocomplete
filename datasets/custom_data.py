@@ -33,7 +33,9 @@ class CustomDataset(BaseDataset):
         pcd = self.load_ply(self.data_paths[idx])
         pcd_center, scale = self._get_scales(pcd)
         pcd = (pcd - pcd_center) / scale
-        return resample_pcd(pcd, 1024), 0, 0, idx
+        # print(pcd.shape, np.min(pcd,axis=0),np.max(pcd,axis=0))
+        # exit()
+        return resample_pcd(pcd, 2048), 0, 0, idx
 
     def inverse_scale(self, idx, scaled_pcd):
         pcd = self.load_ply(self.data_paths[idx])
@@ -47,3 +49,7 @@ class CustomDataset(BaseDataset):
     @classmethod
     def get_validation_datasets(cls, root_dir, classes=[], **kwargs):
         raise NotImplementedError
+    
+    @classmethod
+    def get_test_datasets(cls, root_dir, classes=[], **kwargs):
+        return {'all': CustomDataset(root_dir=root_dir)}

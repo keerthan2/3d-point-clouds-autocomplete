@@ -55,7 +55,7 @@ def fixed(full_model: FullModel, device, datasets_dict, results_dir: str, epoch,
             for k in range(existing.shape[0]):
                 np.save(join(results_dir, 'fixed', f'{cat_name}_{i * batch_size + k}_existing'), np.array(existing[k].cpu().numpy()))
                 if save_plots:
-                    fig = plot_3d_point_cloud(existing[k][0], existing[k][1], existing[k][2], in_u_sphere=True, show=False)
+                    fig = plot_3d_point_cloud(existing[k][0], existing[k][1], existing[k][2], in_u_sphere=True, show=True)
                     fig.savefig(join(results_dir, 'fixed', f'{cat_name}_{i * batch_size + k}_existing.png'))
                     plt.close(fig)
 

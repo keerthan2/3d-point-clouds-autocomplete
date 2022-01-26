@@ -2,6 +2,7 @@ import json
 import logging
 from os.path import join
 from datetime import datetime
+import os
 
 import torch
 import numpy as np
@@ -82,9 +83,9 @@ def main(config: dict):
         raise FileNotFoundError("no weights found at ", weights_path)
     # endregion Setup
 
-    train_dataset, val_dataset_dict, test_dataset_dict = get_datasets(config['dataset'])
+    # train_dataset, val_dataset_dict, test_dataset_dict = get_datasets(config['dataset'])
 
-    log.info(f'Dataset loaded for classes: {[cat_name for cat_name in val_dataset_dict.keys()]}')
+    # log.info(f'Dataset loaded for classes: {[cat_name for cat_name in val_dataset_dict.keys()]}')
 
     if run_mode == 'training':
         samples_path = join(result_dir_path, 'samples')
@@ -177,7 +178,9 @@ def main(config: dict):
 
         # from datasets.real_data import RealDataNPYDataset
         # test_dataset_dict = RealDataNPYDataset(root_dir="D:\\UJ\\bachelors\\3d-point-clouds-autocomplete\\data\\real_car_data")
-
+        
+        from datasets.custom_data import CustomDataset
+        test_dataset_dict = CustomDataset.get_test_datasets(root_dir=os.path.join('data','dataset','custom','test'))
         full_model.eval()
 
         with torch.no_grad():
