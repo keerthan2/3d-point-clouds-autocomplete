@@ -137,7 +137,7 @@ config_missing_shapenet.json.sample
     - also you may change Optimizer and LRScheduler in the appropriate fields
     
 3) exec script
-    - run `python3 core/main.py --config settings/config.json`
+    - run `python core/main.py --config settings/config.json`
 
 ### Pre-trained Models
 Pre-trained models can be downloaded from the author's [Release page](https://github.com/gmum/3d-point-clouds-autocomplete/releases). 
