@@ -2,7 +2,7 @@ This repo contains my experiments with HyperPocket.
 
 # To-do
 - [ ] Train the model on custom-data.
-     - [ ] Generate a heap mesh using blender.
+     - [x] Generate a heap mesh using blender.
      - [ ] Convert mesh to point cloud.
      - [ ] Create variations of heap point cloud in automated fashion.
      - [ ] Randomly remove subsets of the point clouds and create training data.
