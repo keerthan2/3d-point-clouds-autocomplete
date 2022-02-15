@@ -27,7 +27,6 @@ class SlicedDatasetGenerator(object):
 
     @staticmethod
     def generate_item(points, target_partition_points=1024):
-
         while True:
             under = HyperPlane.get_random_plane().check_point(points) > 0
             points_under_plane = points[under]
@@ -35,5 +34,7 @@ class SlicedDatasetGenerator(object):
 
             if target_partition_points == len(points_under_plane):
                 return points_under_plane, points_above_plane
-            if target_partition_points == len(points_above_plane):
+            elif target_partition_points == len(points_above_plane):
                 return points_above_plane, points_under_plane
+            else:
+                return None, None
