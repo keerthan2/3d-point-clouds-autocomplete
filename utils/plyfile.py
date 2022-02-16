@@ -17,7 +17,7 @@
 #       <http://www.gnu.org/licenses/>.
 
 from itertools import islice as _islice
-
+import os
 import numpy as _np
 from sys import byteorder as _byteorder
 
@@ -956,6 +956,8 @@ def quick_save_ply_file(points, filename: str):
     vertex = _np.empty(pl, dtype=dtype_vertex)
     vertex['vertex'] = points
 
+    if not os.path.exists(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
     with open(filename, 'wb') as fp:
         fp.write(bytes(header, encoding='utf-8'))
         fp.write(vertex.tobytes())
