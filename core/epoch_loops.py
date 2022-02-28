@@ -9,8 +9,7 @@ def train_epoch(epoch, full_model: FullModel, optimizer, loader, device, rec_los
     full_model.train()
     loss_all = 0.0
     loss_r = 0.0
-    loss_kld = 0.0
-
+    loss_kld = 0.0    
     for i, point_data in tqdm(enumerate(loader, 1), total=len(loader)):
         optimizer.zero_grad()
 

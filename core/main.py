@@ -88,10 +88,17 @@ def main(config: dict):
     # log.info(f'Dataset loaded for classes: {[cat_name for cat_name in val_dataset_dict.keys()]}')
 
     if run_mode == 'training':
+        from datasets.heap_data import HeapDataset
+        
         samples_path = join(result_dir_path, 'samples')
-        train_dataloader = DataLoader(train_dataset, pin_memory=True, **config['training']['dataloader']['train'])
-        val_dataloaders_dict = {cat_name: DataLoader(cat_ds, pin_memory=True, **config['training']['dataloader']['val'])
-                                for cat_name, cat_ds in val_dataset_dict.items()}
+
+        mode = "train"
+        train_dataset = HeapDataset(config['dataset']['path'], mode)
+        # train_dataloader = DataLoader(train_dataset, pin_memory=True, **config['training']['dataloader']['train'])
+        train_dataloader = DataLoader(train_dataset, pin_memory=True, batch_size=64)
+        
+        # val_dataloaders_dict = {cat_name: DataLoader(cat_ds, pin_memory=True, **config['training']['dataloader']['val'])
+        #                         for cat_name, cat_ds in val_dataset_dict.items()}
         if latest_epoch == 0:
             best_epoch_loss = np.Infinity
             train_losses = []
@@ -125,6 +132,8 @@ def main(config: dict):
 
             if config['telegram_logger']['enable']:
                 tg_log.log_images(train_plots[:9], log_string)
+
+            exit()
 
             epoch_val_losses, epoch_val_samples = val_epoch(epoch, full_model, device, val_dataloaders_dict,
                                                             val_dataset_dict.keys(), reconstruction_loss,
