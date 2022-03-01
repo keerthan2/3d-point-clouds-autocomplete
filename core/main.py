@@ -9,6 +9,9 @@ import numpy as np
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
+import sys
+sys.path.append('../')
+
 from core.arg_parser import parse_config
 from core.epoch_loops import train_epoch, val_epoch
 from core.experiments import experiment_functions_dict
