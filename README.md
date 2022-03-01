@@ -4,8 +4,8 @@ This repo contains my experiments with HyperPocket.
 - [ ] Train the model on custom-data.
      - [x] Generate a heap mesh using blender.
      - [x] Convert mesh to point cloud.
-     - [ ] Create variations of heap point cloud in automated fashion.
-     - [ ] Randomly remove subsets of the point clouds and create training data.
+     - [x] Create variations of heap point cloud in automated fashion.
+     - [x] Randomly remove subsets of the point clouds and create training data.
 - [ ] Repurpose for point cloud stitching. 
 
 # HyperPocket: Generative Point Cloud Completion
