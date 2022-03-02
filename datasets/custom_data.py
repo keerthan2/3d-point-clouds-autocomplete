@@ -36,7 +36,7 @@ class CustomDataset(BaseDataset):
         # print(pcd.shape, np.min(pcd,axis=0),np.max(pcd,axis=0))
         # exit()
         # return resample_pcd(pcd, 2048), 0, 0, idx
-        return pcd, 0, 0, idx
+        return resample_pcd(pcd, 10000), 0, 0, idx
 
     def inverse_scale(self, idx, scaled_pcd):
         pcd = self.load_ply(self.data_paths[idx])
