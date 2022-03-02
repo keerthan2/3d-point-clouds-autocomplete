@@ -136,8 +136,6 @@ def main(config: dict):
             if config['telegram_logger']['enable']:
                 tg_log.log_images(train_plots[:9], log_string)
 
-            exit()
-
             epoch_val_losses, epoch_val_samples = val_epoch(epoch, full_model, device, val_dataloaders_dict,
                                                             val_dataset_dict.keys(), reconstruction_loss,
                                                             config['training']['loss_coef'])
