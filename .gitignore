@@ -1,5 +1,4 @@
 .idea/
-settings/*json
 start.sh
 *__pycache__
 init.sh
