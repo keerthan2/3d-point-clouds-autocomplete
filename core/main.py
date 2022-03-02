@@ -118,7 +118,7 @@ def main(config: dict):
                               config['training']['loss_coef'])
             scheduler.step()
 
-            train_losses.append(np.array([epoch_loss_all.cpu(), epoch_loss_r.cpu(), epoch_loss_kld.cpu()]))
+            train_losses.append(np.array([epoch_loss_all.detach().cpu().numpy(), epoch_loss_r.detach().cpu().numpy(), epoch_loss_kld.detach().cpu().numpy()]))
 
             log_string = f'[{epoch}/{config["training"]["max_epoch"]}] ' \
                          f'Loss_ALL: {epoch_loss_all:.4f} ' \
