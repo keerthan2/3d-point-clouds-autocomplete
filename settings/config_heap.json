@@ -1,5 +1,5 @@
 {
-    "mode": "training",
+    "mode": "experiments", 
     "dataset": {
         "name": "shapenet_heap",
         "path": "data/dataset/heap",
