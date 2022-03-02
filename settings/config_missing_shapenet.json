@@ -47,7 +47,7 @@
         "max_epoch": 230
     },
     "experiments": {
-        "epoch": 228,
+        "epoch": 400,
         "settings": {
             "fixed": {
                 "execute": true,
