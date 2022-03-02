@@ -44,7 +44,7 @@
         },
         "state_save_frequency" : 50,
         "loss_coef": 0.05,
-        "max_epoch": 200
+        "max_epoch": 400
     },
     "experiments": {
         "epoch": 228,
