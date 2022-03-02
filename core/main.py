@@ -95,13 +95,13 @@ def main(config: dict):
         
         samples_path = join(result_dir_path, 'samples')
 
-        mode = "train"
-        train_dataset = HeapDataset(config['dataset']['path'], mode)
-        # train_dataloader = DataLoader(train_dataset, pin_memory=True, **config['training']['dataloader']['train'])
-        train_dataloader = DataLoader(train_dataset, pin_memory=True, batch_size=64)
+        train_dataset = HeapDataset(config['dataset']['path'], "train")
+        val_dataset_dict = {'heap':HeapDataset(config['dataset']['path'], "val")}
         
-        # val_dataloaders_dict = {cat_name: DataLoader(cat_ds, pin_memory=True, **config['training']['dataloader']['val'])
-        #                         for cat_name, cat_ds in val_dataset_dict.items()}
+        # train_dataloader = DataLoader(train_dataset, pin_memory=True, batch_size=64)
+        train_dataloader = DataLoader(train_dataset, pin_memory=True, **config['training']['dataloader']['train'])
+        val_dataloaders_dict = {cat_name: DataLoader(cat_ds, pin_memory=True, **config['training']['dataloader']['val'])
+                                for cat_name, cat_ds in val_dataset_dict.items()}
         if latest_epoch == 0:
             best_epoch_loss = np.Infinity
             train_losses = []
