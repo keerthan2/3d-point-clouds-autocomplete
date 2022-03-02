@@ -10,7 +10,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 
 import sys
-sys.path.append('../')
+sys.path.append('/content/drive/My Drive/DDP/git/3d-point-clouds-autocomplete')
 
 from core.arg_parser import parse_config
 from core.epoch_loops import train_epoch, val_epoch
