@@ -192,7 +192,7 @@ def main(config: dict):
         # test_dataset_dict = RealDataNPYDataset(root_dir="D:\\UJ\\bachelors\\3d-point-clouds-autocomplete\\data\\real_car_data")
         
         from datasets.custom_data import CustomDataset
-        test_dataset_dict = CustomDataset.get_test_datasets(root_dir=os.path.join('data','dataset','heap','test'))
+        test_dataset_dict = CustomDataset.get_test_datasets(root_dir=os.path.join('data','dataset','heap','test','existing'))
         full_model.eval()
 
         with torch.no_grad():
